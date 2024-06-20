@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CoinFlip.View.CoinFlip"
+             Title="CoinFlip">
+    <VerticalStackLayout>
+        <Image 
+            x:Name="Moeda"
+            Source="{Binding Imagem}"
+            HeightRequest="100"
+            Margin="15"
+            />
+
+        <Picker
+            x:Name="CaraCoroaPicker"
+            Title="Escolha: "
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            FontSize="15"
+            Margin="20"
+            SelectedItem="{Binding LadoEscolhido}">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>cara</x:String>
+                    <x:String>coroa</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Button
+            x:Name="BtnCaraCoroa"
+            Text="Girar"
+            Margin="15"
+            Command="{Binding FlipCommand}"
+            BackgroundColor="Black"
+            />
+
+        <Label
+            x:Name="Result"
+            Text="{Binding Resultado}"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            FontSize="30"
+            Margin="15"
+            />
+    </VerticalStackLayout>
+</ContentPage>
